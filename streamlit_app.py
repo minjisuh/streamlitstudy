@@ -1,11 +1,14 @@
 import streamlit as st
-from streamlit_gsheets import GSheetsConnection
 
+st.title("테스트 파일입니다")
+st.header("테테테테스트")
 
-url = "https://docs.google.com/spreadsheets/d/1WI0ZjnFvP1DQHTw0ujI7DtoQEAxBu0e-Q-9SqZPIleU/edit?usp=sharing"
+# Button
+if st.button("버튼"):
+    st.write("버튼을 누르셨네요")
 
-conn = st.experimental_connection("gsheets", type=GSheetsConnection)
-
-data = conn.read(spreadsheet=url, usecols=[0, 1])
-st.dataframe(data)
+# Check box
+checkbox_btn = st.checkbox('체크박스')
+  if checkbox_btn:
+      st.write('체크박스를 누르셨네요')
 

@@ -1,6 +1,8 @@
 <script>
     import "../app.pcss";
     import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
+    import { fetchData } from '$lib/fetchData.js';
+
 </script>
 <Navbar>
     <NavBrand href="/">
@@ -16,3 +18,10 @@
 <div class="px-2 sm:px-4"><div class="container mx-auto">
 <slot></slot>
 </div></div>
+<div>
+    {#await fetchData("add", "GET", {a: 1, b: 3})}
+    <b>Loading...</b>
+    {:then data}
+    <b>{data.result}</b>
+    {/await}
+</div>

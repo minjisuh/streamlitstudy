@@ -24,4 +24,5 @@
     {:then data}
     <b>{data.result}</b>
     {/await}
+
 </div>

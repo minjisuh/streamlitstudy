@@ -1,13 +1,11 @@
-const site_root = "http://localhost:8777/api";
-export async function fetchData(url, method = 'GET', data = {}) {
-    let url = new URL(site_root + url);
+const site_root = "http://10.125.208.188:8777/api/";
+export async function fetchData(uri, method = 'GET', data = {}) {
+    let url = new URL(site_root + uri);
     const headers = { 'Content-Type': 'application/json' };
-    let options ={};
-
+    let options = {};
     if (method === 'GET' && Object.keys(data).length > 0) {
         url.search = new URLSearchParams(data).toString();
     }
-
     switch (method) {
         case 'GET':
             options = { method };
@@ -15,9 +13,9 @@ export async function fetchData(url, method = 'GET', data = {}) {
         case 'POST':
         case 'PUT':
             options = {
-                method,
-                headers,
-                body : JSON.stringify(data)
+            method,
+            headers,
+            body: JSON.stringify(data)
             };
             break;
         case 'DELETE':
@@ -28,5 +26,4 @@ export async function fetchData(url, method = 'GET', data = {}) {
     }
     const response = await fetch(url, options);
     return await response.json();
-    
 }

@@ -1,4 +1,4 @@
-const site_root = "http://10.125.208.188:8777/api/";
+const site_root = "http://127.0.0.1:8777/api/";
 export async function fetchData(uri, method = 'GET', data = {}) {
     let url = new URL(site_root + uri);
     const headers = { 'Content-Type': 'application/json' };

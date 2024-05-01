@@ -22,7 +22,7 @@
     {#await fetchData("add", "GET", {a: 1, b: 3})}
     <b>Loading...</b>
     {:then data}
-    <b>{data.result}</b>
+    <b>result : {data.result}</b>
     {/await}
 
 </div>
